@@ -1,5 +1,11 @@
+import Layout from '../../components/Layout'
+
 const SignIn = (): JSX.Element => {
-  return <div className='bg-red-100'>SignIn</div>
+  return (
+    <Layout>
+      <div className='bg-red-100'>SignIn</div>
+    </Layout>
+  )
 }
 
 export default SignIn
