@@ -1,12 +1,12 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
-import Navbar from '../../components/Navbar'
+import Navbar from '@/components/Navbar'
 import MyAccount from '../MyAccount'
 import NotFound from '../NotFound'
 import MyOrders from '../MyOrders'
 import MyOrder from '../MyOrder'
 import SignIn from '../SignIn'
 import Home from '../Home'
-import { paths } from '../../utils/paths'
+import { paths } from '@/utils/paths.ts'
 import './App.css'
 
 type Route = React.ReactElement<string | React.JSXElementConstructor<JSX.Element>> | null
@@ -21,7 +21,7 @@ const AppRoutes = (): Route => {
     { path: paths.home, element: <Home /> },
   ])
   return routes
-} // Agrega el tipado Route aca
+}
 
 function App(): JSX.Element {
   return (

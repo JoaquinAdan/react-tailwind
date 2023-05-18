@@ -28,24 +28,12 @@ const Navbar = (): JSX.Element => {
     <nav className='flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 font-light'>
       <ul className='flex items-center gap-3'>
         {productsNav.map((item, index) => (
-          <CustomList
-            key={index}
-            className={item.className}
-            underline={item.underline}
-            link={item.link}
-            text={item.text}
-          />
+          <CustomList key={index} className={item.className} underline={item.underline} link={item.link} text={item.text} />
         ))}
       </ul>
       <ul className='flex items-center gap-3'>
         {personalNav.map((item, index) => (
-          <CustomList
-            key={index}
-            className={item.className}
-            underline={item.underline}
-            link={item.link}
-            text={item.text}
-          />
+          <CustomList key={index} className={item.className} underline={item.underline} link={item.link} text={item.text} />
         ))}
       </ul>
     </nav>
