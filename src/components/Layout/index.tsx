@@ -1,5 +1,5 @@
 type Props = {
-  children: JSX.Element | JSX.Element[],
+  children: JSX.Element | Array<JSX.Element>,
 }
 
 const Layout = ({ children }: Props): JSX.Element => {

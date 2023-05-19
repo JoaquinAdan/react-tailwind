@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
 type Product = {
-  category: Record<string, number>,
+  category: Record<string, number | string>,
   id: number,
   image: string,
   name: string,
@@ -12,7 +12,7 @@ const Home = (): JSX.Element => {
   const [items, setItems] = useState<Array<Product>>([])
   console.log(items)
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       let response = await fetch('https://api.escuelajs.co/api/v1/products', {
         method: 'GET',
         headers: {
@@ -26,7 +26,7 @@ const Home = (): JSX.Element => {
       const data = await response.json()
       setItems(data)
     })()
-  }, []) // mi peticion se ejecuta 2 veces, escribi una optimizacion para que solo se ejecute una vez.
+  }, [])
 
   return (
     <Layout>
