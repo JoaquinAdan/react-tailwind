@@ -11,7 +11,7 @@ const CustomList = ({ link, className, text, underline }: Props): JSX.Element =>
   const activeStyle: string = 'underline underline-offset-4'
   return (
     <>
-      {typeof link === 'string' ? (
+      {link ? (
         <li className={className}>
           <NavLink to={link} className={({ isActive }) => (isActive && underline ? activeStyle : undefined)}>
             {text}

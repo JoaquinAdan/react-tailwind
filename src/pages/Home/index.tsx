@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
+import ProductDetail from '@/components/ProductDetail'
+
 type Product = {
   category: Record<string, number | string>,
   id: number,
@@ -12,7 +14,7 @@ const Home = (): JSX.Element => {
   const [items, setItems] = useState<Array<Product>>([])
   console.log(items)
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       let response = await fetch('https://api.escuelajs.co/api/v1/products', {
         method: 'GET',
         headers: {
@@ -36,6 +38,7 @@ const Home = (): JSX.Element => {
           <Card data={item} key={item.id} />
         ))}
       </div>
+      <ProductDetail />
     </Layout>
   )
 }

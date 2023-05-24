@@ -1,5 +1,8 @@
-import { paths } from '../../utils/paths'
+import { ShoppingBagIcon } from '@heroicons/react/20/solid'
+import { useContext } from 'react'
 import CustomList from '../CustomList'
+import { paths } from '../../utils/paths'
+import { ShoppingCartContext } from '../../Context'
 
 type Navigation = {
   underline?: boolean,
@@ -8,6 +11,8 @@ type Navigation = {
   text: string,
 }
 const Navbar = (): JSX.Element => {
+  const context = useContext(ShoppingCartContext)
+
   const productsNav: Array<Navigation> = [
     { text: 'Shopi', link: '/', className: 'font-semibold text-lg' },
     { text: 'All', link: '/all', underline: true },
@@ -22,7 +27,7 @@ const Navbar = (): JSX.Element => {
     { text: 'My orders', link: paths.myOrders, underline: true },
     { text: 'My account', link: paths.myAccount, underline: true },
     { text: 'Sign In', link: paths.signin, underline: true },
-    { text: '🛒0', className: 'cursor-default' },
+    { text: `${(<ShoppingBagIcon className='h-6 w-6 text-black' />)}${context.count}`, className: 'cursor-default' },
   ]
   return (
     <nav className='flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 font-light'>
