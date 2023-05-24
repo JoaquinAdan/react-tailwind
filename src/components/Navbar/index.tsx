@@ -5,6 +5,7 @@ import { paths } from '../../utils/paths'
 import { ShoppingCartContext } from '../../Context'
 
 type Navigation = {
+  component?: JSX.Element,
   underline?: boolean,
   className?: string,
   link?: unknown,
@@ -27,7 +28,11 @@ const Navbar = (): JSX.Element => {
     { text: 'My orders', link: paths.myOrders, underline: true },
     { text: 'My account', link: paths.myAccount, underline: true },
     { text: 'Sign In', link: paths.signin, underline: true },
-    { text: `${(<ShoppingBagIcon className='h-6 w-6 text-black' />)}${context.count}`, className: 'cursor-default' },
+    {
+      text: `${context.count}`,
+      className: 'cursor-default flex',
+      component: <ShoppingBagIcon className='h-6 w-6 text-black' />,
+    },
   ]
   return (
     <nav className='flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 font-light'>
@@ -38,7 +43,14 @@ const Navbar = (): JSX.Element => {
       </ul>
       <ul className='flex items-center gap-3'>
         {personalNav.map((item, index) => (
-          <CustomList key={index} className={item.className} underline={item.underline} link={item.link} text={item.text} />
+          <CustomList
+            key={index}
+            component={item.component}
+            className={item.className}
+            underline={item.underline}
+            link={item.link}
+            text={item.text}
+          />
         ))}
       </ul>
     </nav>

@@ -1,13 +1,8 @@
 import { NavLink } from 'react-router-dom'
 
-type Props = {
-  underline?: boolean,
-  className?: string,
-  link: unknown,
-  text: string,
-}
+type Props = { component?: JSX.Element, underline?: boolean, className?: string, link: unknown, text: string }
 
-const CustomList = ({ link, className, text, underline }: Props): JSX.Element => {
+const CustomList = ({ link, className, text, underline, component }: Props): JSX.Element => {
   const activeStyle: string = 'underline underline-offset-4'
   return (
     <>
@@ -18,7 +13,12 @@ const CustomList = ({ link, className, text, underline }: Props): JSX.Element =>
           </NavLink>
         </li>
       ) : (
-        <li className={className}>{text}</li>
+        // <div className={' flex justify-center items-center'}>
+        <li className={className}>
+          {component}
+          <div>{text}</div>
+        </li>
+        // </div>
       )}
     </>
   )
